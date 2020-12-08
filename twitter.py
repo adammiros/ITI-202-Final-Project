@@ -37,10 +37,12 @@ def getFityLatestTweets(userToLookup: str):
             if ('RT @' not in tweet.full_text):
                 tweet = re.sub(r"http\S+", "", tweet.full_text)
                 print(tweet.full_text + "\n")
-                print("Tweet: " + tweet + "\n")
+                print("Tweet: " + tweet.full_text + "\n")
 
                 print("Writting to tweet.txt...")
                 file.writelines(tweet)
 
+    file.close()         
 
-    file.close()
+
+
