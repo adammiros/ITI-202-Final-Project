@@ -2,6 +2,7 @@ from flask import Flask, request, render_template
 import twitter
 import cleanup
 import analysis
+import buildResponse
 
 text_file = "tweets.txt"
 
@@ -23,9 +24,10 @@ def home():
         cleanup.cleanUpText(text_file)
         polarityScore, mood = analysis.getPolarity(text_file)
 
-        print(polarityScore)
-        print(mood)
-        return render_template("home.html")
+        response, emoji = buildResponse.buildResponse(polarityScore, mood, username)
+        print(response)
+        print(emoji)
+        return render_template("result.html", response = response, emoji = emoji)
 
 
 #Needed to start entire web application
