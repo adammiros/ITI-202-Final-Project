@@ -16,7 +16,7 @@ api = tweepy.API(auth)
 
 
 
-file = open("tweets.txt", mode="w")
+file = open("tweets.txt", mode="w", encoding="utf-8")
 
 #######################
 
@@ -29,7 +29,7 @@ def getFityLatestTweets(userToLookup: str):
                 tweet = re.sub(r"http\S+", "", tweet.full_text)
                 print("Tweet: " + tweet + "\n")
 
-                print("Writting to tweets.txt...")
+                print("Writting to tweet.txt...")
                 file.writelines(tweet)
     else:
         print("Looking up latest tweets for: " + userToLookup)
@@ -39,12 +39,8 @@ def getFityLatestTweets(userToLookup: str):
                 print(tweet.full_text + "\n")
                 print("Tweet: " + tweet + "\n")
 
-                print("Writting to tweets.txt...")
+                print("Writting to tweet.txt...")
                 file.writelines(tweet)
 
 
     file.close()
-
-
-
-getFityLatestTweets("")
