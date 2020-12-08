@@ -31,8 +31,6 @@ subjectivity = blob.sentiment.subjectivity
 print(subjectivity)
 
 
-
-
 #Create empty dictionary
 wordFrequencies = dict()
 
