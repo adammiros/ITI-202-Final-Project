@@ -7,6 +7,9 @@ cwd = os.getcwd()
 
 
 
+
+
+
 # Setup: Open TXT File, read data
 file = open("sample.txt", mode="r")
 text = file.read()
