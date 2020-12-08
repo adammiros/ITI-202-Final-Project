@@ -1,0 +1,66 @@
+﻿{% extends "base.html" %}
+{% block title %}Form Submission{% endblock %}
+
+
+{% block content %}
+<br>
+
+<script>
+  function fillJoe() {
+    document.getElementById("usernameField").value = "JoeBiden";
+  }
+
+  function fillCNN() {
+    document.getElementById("usernameField").value = "CNN";
+  }
+
+  function fillNjDotCom() {
+    document.getElementById("usernameField").value = "njdotcom";
+  }
+</script>
+
+
+<div class="jumbotron jumbotron-fluid" style="background-image: url(https://i.imgur.com/hnAwp9Y.png); background-size: cover; length: 100%; min-height: 300px;"> 
+</div>
+
+<div class="container">
+
+    <h1 class="display-9" style="color: white; text-align: center;">Twitter User To Analyze</h1>
+<form action="#" method="POST" id="mainForm" enctype="multipart/form-data">
+
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">@</div>
+        </div>
+        <input type="text" class="form-control" id="usernameField" name="username" placeholder="Username">
+      </div>
+      <small id="passwordHelpBlock" class="form-text" style="color: white;">
+        Enter a twitter username (username that appears after the @ symbol. (I.E for @JoeBiden it would just be JoeBiden)
+      </small>
+
+      <br>
+
+    <div class="text-center">
+        <h3 style="color: white;"> Not Sure who to lookup? Try one of these: </h3>
+        <button type="button" class="btn btn-primary" name="JoeBiden" onclick="fillJoe()">Joe Biden</button>
+        <button type="button" class="btn btn-primary" name ="cnn" onclick="fillCNN()">CNN</button>
+        <button type="button" class="btn btn-primary" name="njdotcom" onclick="fillNjDotCom()">NJ.com</button>
+    </div>
+
+
+    <br>
+    <br>
+
+    <div class="text-center">
+    <p><input class="btn btn-primary" style="width: 200px;" type="submit" value="Submit"/></p>
+    </div>
+
+
+
+</form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+{% endblock %}
