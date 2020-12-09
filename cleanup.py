@@ -1,20 +1,14 @@
-import os
 import string
-
-
 
 def cleanUpText(fileToClean: str):
     
-    #Opening file to read contents then closing
+    #Opening file to read contents and saving to text variable then closing
     file = open(fileToClean, mode="r", encoding="utf8")
     text = file.read()
     file.close()
     
-
+    #Opening file to write clean data (note When writting, all previous data in file is lost)
     file = open(fileToClean, mode="w", encoding="utf8")
-
-
-    
 
     for line in text:
 

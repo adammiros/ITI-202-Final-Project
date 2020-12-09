@@ -20,13 +20,18 @@ def home():
         #On Submission get data from form
         username = request.form["username"]
 
+        #Main function calls from other files occur here
         twitter.getFityLatestTweets(username)
         cleanup.cleanUpText(text_file)
         polarityScore, mood = analysis.getPolarity(text_file)
 
         response, emoji = buildResponse.buildResponse(polarityScore, mood, username)
+
+        #Used to test output before rendering results page
         print(response)
         print(emoji)
+
+        #Rendering results page
         return render_template("result.html", response = response, emoji = emoji)
 
 

@@ -17,22 +17,21 @@ api = tweepy.API(auth)
 #######################
 
 def getFityLatestTweets(userToLookup: str):
+
+    ###Opening the tweets.txt file we will write to
     file = open("tweets.txt", mode="w", encoding="utf-8")
+
+    #Checking if a username was entered
     if(userToLookup == "" or  userToLookup == " "):
         print("Since you did not provide a person to look up, we will use Joe Biden")
         userToLookup = "JoeBiden"
         for tweet in api.user_timeline(screen_name=userToLookup, tweet_mode='extended', count=50):
-            if ('RT @' not in tweet.full_text):
                 tweet = re.sub(r"http\S+", "", tweet.full_text)
-                #print("Tweet: " + tweet + "\n")
-
-                #print("Writting to tweet.txt...")
                 file.writelines(tweet)
     else:
             for tweet in api.user_timeline(screen_name=userToLookup, tweet_mode='extended', count=50):
-                if ('RT @' not in tweet.full_text):
                     tweet = re.sub(r"http\S+", "", tweet.full_text)
-                    #print("Tweet: " + tweet + "\n")
-
-                    #print("Writting to tweet.txt...")
                     file.writelines(tweet)
+
+
+

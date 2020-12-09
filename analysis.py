@@ -8,8 +8,10 @@ def getPolarity(fileForAnalysis: str):
 
     data = file.read()
 
+    #Creating the blob object
     text = TextBlob(data)
 
+    #Getting a polarity score
     polarity_score = text.sentiment.polarity
 
     if (polarity_score < 0):
@@ -24,11 +26,3 @@ def getPolarity(fileForAnalysis: str):
 
      
     return polarity_score, mood
-
-
-
-    
-
-
-
-
