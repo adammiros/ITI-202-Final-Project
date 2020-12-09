@@ -3,6 +3,7 @@ import twitter
 import cleanup
 import analysis
 import buildResponse
+import log
 
 text_file = "tweets.txt"
 
@@ -26,6 +27,8 @@ def home():
         polarityScore, mood = analysis.getPolarity(text_file)
 
         response, emoji = buildResponse.buildResponse(polarityScore, mood, username)
+
+        log.logQuery(username, polarityScore)
 
         #Used to test output before rendering results page
         print(response)
